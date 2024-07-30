@@ -1,0 +1,81 @@
+[gd_scene load_steps=12 format=3 uid="uid://c7kqti21y5pvn"]
+
+[ext_resource type="Texture2D" uid="uid://djevr5ip3aa2p" path="res://brackeys_platformer_assets/sprites/world_tileset.png" id="1_go5u0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hx52g"]
+atlas = ExtResource("1_go5u0")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6knwy"]
+atlas = ExtResource("1_go5u0")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_omdtt"]
+atlas = ExtResource("1_go5u0")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kt5qn"]
+atlas = ExtResource("1_go5u0")
+region = Rect2(32, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c3mem"]
+atlas = ExtResource("1_go5u0")
+region = Rect2(64, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0328e"]
+atlas = ExtResource("1_go5u0")
+region = Rect2(80, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1bf4"]
+atlas = ExtResource("1_go5u0")
+region = Rect2(112, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sf45t"]
+atlas = ExtResource("1_go5u0")
+region = Rect2(128, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_60rj6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hx52g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6knwy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_omdtt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kt5qn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c3mem")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0328e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u1bf4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sf45t")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yhki5"]
+size = Vector2(16, 16)
+
+[node name="FinalCoin" type="Area2D"]
+collision_layer = 32
+collision_mask = 0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_60rj6")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_yhki5")

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bnp7tn3mehkm4"]
+
+[ext_resource type="Script" path="res://Scripts/UI/SelectLevel/ButtonSelectLevel.gd" id="1_uubqs"]
+
+[node name="ButtonSelectLevel" type="Button"]
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_font_sizes/font_size = 36
+script = ExtResource("1_uubqs")
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]

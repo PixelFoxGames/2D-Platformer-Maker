@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://d30uxfhl38o07"]
+
+[ext_resource type="Script" path="res://Scripts/UI/UISetup/UISetupManager.gd" id="1_rppjc"]
+[ext_resource type="Script" path="res://Scripts/UI/UISetup/ButtonSetup.gd" id="1_wyiby"]
+[ext_resource type="Script" path="res://Scripts/UI/UISetup/ButtonChangeMode.gd" id="2_2s10x"]
+[ext_resource type="Script" path="res://Scripts/UI/UISetup/ButtonBackToMenu.gd" id="3_l4q6w"]
+
+[node name="UISetup" type="CanvasLayer"]
+script = ExtResource("1_rppjc")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -76.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="ButtonSetup" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Setup"
+script = ExtResource("1_wyiby")
+
+[node name="ButtonChangeMode" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Create"
+script = ExtResource("2_2s10x")
+
+[node name="ButtonBackToMenu" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Back"
+script = ExtResource("3_l4q6w")
+
+[connection signal="button_down" from="CenterContainer/VBoxContainer/ButtonSetup" to="CenterContainer/VBoxContainer/ButtonSetup" method="_on_button_down"]
+[connection signal="button_down" from="CenterContainer/VBoxContainer/ButtonChangeMode" to="CenterContainer/VBoxContainer/ButtonChangeMode" method="_on_button_down"]
+[connection signal="button_down" from="CenterContainer/VBoxContainer/ButtonBackToMenu" to="CenterContainer/VBoxContainer/ButtonBackToMenu" method="_on_button_down"]

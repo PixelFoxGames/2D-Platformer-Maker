@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfaj05bqqcdsy"]
+
+[ext_resource type="Script" path="res://Scripts/CreateMode/UI/CreationUI.gd" id="1_j52aj"]
+[ext_resource type="PackedScene" uid="uid://c7q6hv8cmb4ss" path="res://Scenes/MainScene/CreationMode/Entities/EntityTextureButton.tscn" id="2_bekeu"]
+
+[node name="PanelContainer" type="PanelContainer"]
+offset_right = 104.0
+offset_bottom = 40.0
+script = ExtResource("1_j52aj")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="EntityTextureButtonPlayer" parent="HBoxContainer" instance=ExtResource("2_bekeu")]
+layout_mode = 2
+
+[node name="EntityTextureButtonRebornSlime" parent="HBoxContainer" instance=ExtResource("2_bekeu")]
+layout_mode = 2
+Block = 32
+
+[node name="EntityTextureButtonBombSlime" parent="HBoxContainer" instance=ExtResource("2_bekeu")]
+layout_mode = 2
+Block = 33
+
+[node name="EntityTextureButtonCoin" parent="HBoxContainer" instance=ExtResource("2_bekeu")]
+layout_mode = 2
+Block = 34
+
+[node name="EntityTextureButtonFinalCoin" parent="HBoxContainer" instance=ExtResource("2_bekeu")]
+layout_mode = 2
+Block = 35
+
+[node name="EntityTextureButtonStaticPlatform0" parent="HBoxContainer" instance=ExtResource("2_bekeu")]
+layout_mode = 2
+Block = 36
+
+[node name="EntityTextureButtonStaticPlatform1" parent="HBoxContainer" instance=ExtResource("2_bekeu")]
+layout_mode = 2
+Block = 37
+
+[node name="EntityTextureButtonMovementPlatform0" parent="HBoxContainer" instance=ExtResource("2_bekeu")]
+layout_mode = 2
+Block = 38
+
+[node name="EntityTextureButtonMovementPlatform1" parent="HBoxContainer" instance=ExtResource("2_bekeu")]
+layout_mode = 2
+Block = 39
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

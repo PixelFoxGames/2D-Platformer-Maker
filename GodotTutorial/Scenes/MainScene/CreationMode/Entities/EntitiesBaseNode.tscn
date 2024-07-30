@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://2m5nnh1kjn2p"]
+
+[node name="EntitiesBaseNode" type="Node2D"]

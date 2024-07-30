@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://bg7navl4ohsj7"]
+
+[ext_resource type="Texture2D" uid="uid://blnifit5ad04j" path="res://brackeys_platformer_assets/sprites/platforms.png" id="1_meruw"]
+[ext_resource type="Script" path="res://Scripts/Platforms/movement_platform.gd" id="1_ud73d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7iamu"]
+size = Vector2(32, 8)
+
+[node name="MovementPlatform" type="RigidBody2D" node_paths=PackedStringArray("PositiveRayCast2D", "NegativeRayCast2D")]
+collision_layer = 16
+collision_mask = 0
+freeze = true
+script = ExtResource("1_ud73d")
+PositiveRayCast2D = NodePath("PositiveRayCast2D")
+NegativeRayCast2D = NodePath("NegativeRayCast2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -4)
+texture = ExtResource("1_meruw")
+region_enabled = true
+region_rect = Rect2(16, 32, 32, 9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_7iamu")
+one_way_collision = true
+
+[node name="PositiveRayCast2D" type="RayCast2D" parent="."]
+position = Vector2(15, -4)
+target_position = Vector2(3, 0)
+collision_mask = 3
+
+[node name="NegativeRayCast2D" type="RayCast2D" parent="."]
+position = Vector2(-15, -4)
+target_position = Vector2(-3, 0)
+collision_mask = 3

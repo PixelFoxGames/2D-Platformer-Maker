@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://u7xkitxlknws"]
+
+[ext_resource type="PackedScene" uid="uid://c6xqsfntw12ko" path="res://Scenes/Managers/MainTileMap.tscn" id="1_m34r0"]
+[ext_resource type="Script" path="res://Scripts/CreateMode/CameraCreation.gd" id="2_k2xcc"]
+[ext_resource type="PackedScene" uid="uid://cfaj05bqqcdsy" path="res://Scenes/MainScene/CreationMode/CreationUI.tscn" id="4_yjlqc"]
+[ext_resource type="PackedScene" uid="uid://d30uxfhl38o07" path="res://Scenes/MainScene/SetupUI/UISetup.tscn" id="7_22h17"]
+
+[node name="CreationScene" type="Node2D"]
+
+[node name="MainTileMap" parent="." instance=ExtResource("1_m34r0")]
+unique_name_in_owner = true
+
+[node name="CameraCreation" type="Camera2D" parent="."]
+position = Vector2(500, -300)
+zoom = Vector2(2, 2)
+script = ExtResource("2_k2xcc")
+
+[node name="CreationCanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TileMapBlockUI" parent="CreationCanvasLayer" instance=ExtResource("4_yjlqc")]
+
+[node name="UISetup" parent="." instance=ExtResource("7_22h17")]

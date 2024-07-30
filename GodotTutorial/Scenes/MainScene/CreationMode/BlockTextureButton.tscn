@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://co34yutka3om0"]
+
+[ext_resource type="Script" path="res://Scripts/CreateMode/UI/BlockTextureButton.gd" id="1_sfon6"]
+
+[node name="BlockTextureButton" type="TextureButton"]
+custom_minimum_size = Vector2(32, 32)
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_sfon6")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

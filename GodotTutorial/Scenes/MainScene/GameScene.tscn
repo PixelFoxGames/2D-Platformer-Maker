@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://dsj2tf7jt1sim"]
+
+[ext_resource type="PackedScene" uid="uid://c6xqsfntw12ko" path="res://Scenes/Managers/MainTileMap.tscn" id="2_xqu12"]
+[ext_resource type="PackedScene" uid="uid://cspdys5qnl2m4" path="res://Scenes/HurtBoxs/kill_zone.tscn" id="3_iatnr"]
+[ext_resource type="PackedScene" uid="uid://d30uxfhl38o07" path="res://Scenes/MainScene/SetupUI/UISetup.tscn" id="5_4ybe5"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jvwxk"]
+
+[node name="GameScene" type="Node2D"]
+
+[node name="MainTileMap" parent="." instance=ExtResource("2_xqu12")]
+unique_name_in_owner = true
+position = Vector2(3, 0)
+
+[node name="KillZone" parent="." instance=ExtResource("3_iatnr")]
+position = Vector2(0, 80)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone"]
+shape = SubResource("WorldBoundaryShape2D_jvwxk")
+
+[node name="UISetup" parent="." instance=ExtResource("5_4ybe5")]

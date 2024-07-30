@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cspdys5qnl2m4"]
+
+[ext_resource type="Script" path="res://Scripts/HurtBoxs/kill_zone.gd" id="1_ribfu"]
+
+[node name="Area2D" type="Area2D"]
+collision_mask = 6
+script = ExtResource("1_ribfu")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
