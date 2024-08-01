@@ -1,19 +1,28 @@
 class_name LevelData
 
 
-func SaveLevelName(sceneName:String, dataPath:String = "SceneNameList.txt") -> void:
+func SaveLevelName(levelName:String, dataPath:String = "SceneNameList.txt") -> void:
+	print(levelName);
 	var levelNameList: Array = LoadLevelNameList(dataPath);
 	for name in levelNameList:
-		if sceneName == name:
+		if levelName == name:
 			return;
-	levelNameList.append(sceneName);
+	levelNameList.append(levelName);
+	dataPath = BaseDataPath + dataPath;
 	SaveVar(dataPath, levelNameList);
 func LoadLevelNameList(dataPath:String = "SceneNameList.txt") -> Array:
+	dataPath = BaseDataPath + dataPath;
 	return LoadVar(dataPath);
+
+
+var BaseDataPath = "GameData/"; 
+#var BaseDataPath = "user://";
+#var BaseDataPath = "res://"; 
 
 
 func SaveLevelData(dataPath:String) -> void:
 	SaveLevelName(dataPath);
+	dataPath = BaseDataPath + dataPath;
 	SaveMapBlockMatrix(dataPath + "_MapBlockMatrix.txt");
 	SavePlayer(dataPath + "_PlayerBornPos.txt");
 	SaveFinalCoin(dataPath + "_FinalCoinPos.txt");
@@ -27,6 +36,7 @@ func SaveLevelData(dataPath:String) -> void:
 	SaveMovementPlatform0(dataPath + "_MovementPlatform0.txt");
 	SaveMovementPlatform1(dataPath + "_MovementPlatform1.txt");
 func LoadLevelData(dataPath:String) -> void:
+	dataPath = BaseDataPath + dataPath;
 	LoadMapBlockMatrix(dataPath + "_MapBlockMatrix.txt");
 	LoadPlayer(dataPath + "_PlayerBornPos.txt");
 	LoadFinalCoin(dataPath + "_FinalCoinPos.txt");

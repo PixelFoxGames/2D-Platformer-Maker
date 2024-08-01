@@ -85,6 +85,7 @@ func StateUpdate(playerState: PlayerState, delta:float) -> void:
 			inputUpdateNormalXMove(delta);
 			updateGravity(delta);
 			inputTryTransJumpToOnTree();
+			inputUpdateJumpPower(delta);
 			updateJump(delta);
 		PlayerState.FORWARD_ROLL:
 			inputUpdateNormalXMove(delta);
@@ -180,6 +181,13 @@ func inputUpdateTreeYMove(delta: float) -> void:
 				velocity.y = SPEED_CLIMB_TREE;
 		else:
 			velocity.y = 0;
+
+
+func inputUpdateJumpPower(delta: float) -> void:
+	if Input.is_action_just_released("Jump") or Input.is_action_just_released("MoveUp"):
+		if velocity.y < 0:
+			velocity.y = 0;
+		jumpVelocity = JUMP_VELOCITY;
 
 
 func inputUpdateNormalYMove(delta: float) -> void:
@@ -329,6 +337,7 @@ func updateForwardRoll(delta: float) -> void:
 
 func startOnTree() -> void:
 	animated_sprite_2d.play("OnTree")
+	jumpVelocity = JUMP_VELOCITY;
 func updateOnTree(delta: float) -> void:
 	if currentPlayerState != PlayerState.ON_TREE:
 		return;

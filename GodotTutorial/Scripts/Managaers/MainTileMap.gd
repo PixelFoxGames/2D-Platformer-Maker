@@ -42,6 +42,8 @@ func SaveCurrentScene() -> void:
 func SaveScene(levelName: String) -> void:
 	var levelData = LevelData.new();
 	levelData.SaveLevelData(levelName);
+
+
 func LoadLevelByName(levelName: String) -> void:
 	ClearWhole();
 	Engine.time_scale = 1;
